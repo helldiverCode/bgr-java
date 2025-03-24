@@ -12,4 +12,87 @@ public class GameFilterDTO {
     private Boolean availableOnly;  // Show only available games
     private Integer page;
     private Integer pageSize;
+
+    public GameFilterDTO() {
+    }
+
+    public String getSearchTerm() {
+        return searchTerm;
+    }
+
+    public void setSearchTerm(String searchTerm) {
+        this.searchTerm = searchTerm;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public Integer getMinPlayers() {
+        return minPlayers;
+    }
+
+    public void setMinPlayers(Integer minPlayers) {
+        this.minPlayers = minPlayers;
+    }
+
+    public Integer getMaxPlayers() {
+        return maxPlayers;
+    }
+
+    public void setMaxPlayers(Integer maxPlayers) {
+        this.maxPlayers = maxPlayers;
+    }
+
+    public Integer getMaxPlayTime() {
+        return maxPlayTime;
+    }
+
+    public void setMaxPlayTime(Integer maxPlayTime) {
+        this.maxPlayTime = maxPlayTime;
+    }
+
+    public Integer getAgeRecommendation() {
+        return ageRecommendation;
+    }
+
+    public void setAgeRecommendation(Integer ageRecommendation) {
+        this.ageRecommendation = ageRecommendation;
+    }
+
+    public Integer getMinRating() {
+        return minRating;
+    }
+
+    public void setMinRating(Integer minRating) {
+        this.minRating = minRating;
+    }
+
+    public Boolean getAvailableOnly() {
+        return availableOnly;
+    }
+
+    public void setAvailableOnly(Boolean availableOnly) {
+        this.availableOnly = availableOnly;
+    }
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
 }

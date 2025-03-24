@@ -1,7 +1,13 @@
-package com.example.bgr.model.dto;
+package com.example.bgr.model.entity;
 
-public class GameDTO {
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "GAME")
+public class GameEntity {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String name;             // Game title
     private String description;      // Brief game description
@@ -17,10 +23,10 @@ public class GameDTO {
     private Integer quantity;
     private Integer inStock;
 
-    public GameDTO() {
+    public GameEntity() {
     }
 
-    public GameDTO(Long id, String name, String description, String category, Integer minPlayers, Integer maxPlayers, Integer playTime, Integer ageRecommendation, Integer rentalPrice, Boolean available, String imageUrl, String barcode, Integer quantity, Integer inStock) {
+    public GameEntity(Long id, String name, String description, String category, Integer minPlayers, Integer maxPlayers, Integer playTime, Integer ageRecommendation, Integer rentalPrice, Boolean available, String imageUrl, String barcode, Integer quantity, Integer inStock) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -149,3 +155,5 @@ public class GameDTO {
         this.inStock = inStock;
     }
 }
+
+
