@@ -7,7 +7,8 @@ import jakarta.persistence.*;
 public class GameEntity {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "game_seq")
+    @SequenceGenerator(name = "game_seq", sequenceName = "GAME_SEQ", allocationSize = 1)
     private Long id;
     private String name;             // Game title
     private String description;      // Brief game description
