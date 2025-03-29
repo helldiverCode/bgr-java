@@ -77,6 +77,9 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public GameDTO saveGame(GameDTO gameDTO) {
+        if (gameDTO.getId() == null && gameDTO.getBarcode() != null && gameDao.existsByBarcode(gameDTO.getBarcode())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "A game with the same barcode already exists.");
+        }
         GameEntity gameEntity = gameMapper.mapToEntity(gameDTO);
         GameEntity savedEntity = gameDao.save(gameEntity);
         return gameMapper.mapToDto(savedEntity);
