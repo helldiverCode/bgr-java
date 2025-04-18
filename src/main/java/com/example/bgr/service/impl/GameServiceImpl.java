@@ -4,6 +4,7 @@ import com.example.bgr.dao.GameDao;
 import com.example.bgr.mapper.GameMapper;
 import com.example.bgr.model.dto.GameDTO;
 import com.example.bgr.model.dto.GameFilterDTO;
+import com.example.bgr.model.dto.RentDTO;
 import com.example.bgr.model.entity.GameEntity;
 import com.example.bgr.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,5 +84,10 @@ public class GameServiceImpl implements GameService {
         GameEntity gameEntity = gameMapper.mapToEntity(gameDTO);
         GameEntity savedEntity = gameDao.save(gameEntity);
         return gameMapper.mapToDto(savedEntity);
+    }
+
+    @Override
+    public RentDTO rentGame(RentDTO rentDTO) {
+        return null;
     }
 }
