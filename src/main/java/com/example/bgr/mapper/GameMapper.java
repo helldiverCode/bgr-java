@@ -8,6 +8,10 @@ import org.springframework.stereotype.Component;
 public class GameMapper extends Mapper<GameDTO, GameEntity> {
     @Override
     public GameDTO mapToDto(GameEntity entity) {
+        if (entity == null) {
+            return null;
+        }
+
         GameDTO mapped = new GameDTO();
         mapped.setAvailable(entity.getAvailable());
         mapped.setBarcode(entity.getBarcode());
@@ -28,6 +32,10 @@ public class GameMapper extends Mapper<GameDTO, GameEntity> {
 
     @Override
     public GameEntity mapToEntity(GameDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
         GameEntity mapped = new GameEntity();
         mapped.setAvailable(dto.getAvailable());
         mapped.setBarcode(dto.getBarcode());

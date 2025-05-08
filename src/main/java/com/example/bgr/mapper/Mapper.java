@@ -1,6 +1,7 @@
 package com.example.bgr.mapper;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Mapper<D, E> {
 
@@ -9,10 +10,10 @@ public abstract class Mapper<D, E> {
     public abstract E mapToEntity(D dto);
 
     public List<D> mapToDtos(List<E> entities) {
-        return entities.stream().map(this::mapToDto).toList();
+        return entities.stream().filter(Objects::nonNull).map(this::mapToDto).toList();
     }
 
     public List<E> mapToEntites(List<D> dtos) {
-        return dtos.stream().map(this::mapToEntity).toList();
+        return dtos.stream().filter(Objects::nonNull).map(this::mapToEntity).toList();
     }
 }

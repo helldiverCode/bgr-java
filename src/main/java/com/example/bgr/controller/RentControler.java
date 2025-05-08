@@ -19,7 +19,7 @@ public class RentControler {
         this.gameService = gameService;
     }
 
-    @PostMapping("/game")
+    @PostMapping("/game-rent")
     public ResponseEntity<RentDTO> rentGame(@RequestBody RentDTO rentDTO) {
         RentDTO rentedGame = gameService.rentGame(rentDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(rentedGame);
