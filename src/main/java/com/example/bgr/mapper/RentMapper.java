@@ -4,7 +4,9 @@ import com.example.bgr.model.dto.RentDTO;
 import com.example.bgr.model.entity.GameEntity;
 import com.example.bgr.model.entity.PlayerEntity;
 import com.example.bgr.model.entity.RentEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RentMapper extends Mapper<RentDTO, RentEntity> {
     @Override
     public RentDTO mapToDto(RentEntity entity) {

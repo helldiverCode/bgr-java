@@ -5,6 +5,7 @@ import com.example.bgr.mapper.GameMapper;
 import com.example.bgr.model.dto.GameDTO;
 import com.example.bgr.model.dto.GameFilterDTO;
 import com.example.bgr.model.entity.GameEntity;
+import com.example.bgr.service.RentService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -34,12 +35,15 @@ class GameServiceImplTest {
     @Mock
     private GameMapper gameMapper;
 
+    @Mock
+    private RentService rentService;
+
     @InjectMocks
     private GameServiceImpl gameService;
 
     @BeforeEach
     void setUp() {
-        gameService = new GameServiceImpl(gameDao, gameMapper);
+        gameService = new GameServiceImpl(gameDao, gameMapper, rentService);
     }
 
     @Test

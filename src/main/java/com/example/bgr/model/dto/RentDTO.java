@@ -1,9 +1,14 @@
 package com.example.bgr.model.dto;
 
+import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDateTime;
 
 public class RentDTO {
+
+    @NotNull
     private Long gameId;
+    @NotNull
     private String playerId;
     private LocalDateTime rentStart;
     private LocalDateTime rentEnd;

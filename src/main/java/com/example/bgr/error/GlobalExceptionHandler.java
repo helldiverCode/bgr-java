@@ -1,5 +1,8 @@
 package com.example.bgr.error;
 
+import jakarta.validation.ConstraintDeclarationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -20,5 +23,15 @@ public class GlobalExceptionHandler {
         body.put("message", ex.getReason());
 
         return new ResponseEntity<>(body, ex.getStatusCode());
+    }
+
+    @ExceptionHandler(ConstraintDeclarationException.class)
+    public ResponseEntity<Object> handleConstraintDeclarationException(ConstraintDeclarationException ex) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", HttpStatus.BAD_REQUEST);
+        body.put("message", "Wrong request body. Validated constraints.");
+
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 }

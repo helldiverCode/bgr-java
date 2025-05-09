@@ -7,6 +7,7 @@ import com.example.bgr.model.dto.GameFilterDTO;
 import com.example.bgr.model.dto.RentDTO;
 import com.example.bgr.model.entity.GameEntity;
 import com.example.bgr.service.GameService;
+import com.example.bgr.service.RentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,11 +25,13 @@ public class GameServiceImpl implements GameService {
 
     private GameDao gameDao;
     private GameMapper gameMapper;
+    private RentService rentService;
 
     @Autowired
-    public GameServiceImpl(GameDao gameDao, GameMapper gameMapper) {
+    public GameServiceImpl(GameDao gameDao, GameMapper gameMapper, RentService rentService) {
         this.gameDao = gameDao;
         this.gameMapper = gameMapper;
+        this.rentService = rentService;
     }
 
     @Override
@@ -88,6 +91,6 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public RentDTO rentGame(RentDTO rentDTO) {
-        return null;
+        return rentService.rentGame(rentDTO);
     }
 }
